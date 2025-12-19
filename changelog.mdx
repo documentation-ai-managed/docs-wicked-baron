@@ -1,0 +1,103 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Wicked Baron, including new features and bug fixes.
+---
+
+## Recent Updates
+
+<Update label="2024-10-20" description="v2.3.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Added audience segmentation by engagement levels, allowing you to filter insights for high-value users.
+- Introduced post performance predictions using machine learning models trained on historical data.
+
+## Bug Fixes
+
+- Fixed dashboard refresh issues that caused stale Facebook page metrics.
+- Resolved export errors for CSV reports exceeding `>10MB`.
+
+## Improvements
+
+- Enhanced load times for audience demographics by `50%`.
+
+</Update>
+
+<Update label="2024-10-05" description="v2.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Integrated real-time post notifications via webhooks to `https://your-webhook-url.com/webhook`.
+- Added competitor analysis dashboard comparing your page to similar Facebook pages.
+
+## Improvements
+
+- Optimized query performance for large datasets from high-traffic pages.
+
+</Update>
+
+<Update label="2024-09-15" description="v2.1.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Updated API endpoints from `/v1/pages` to `/v2/pages`. Migrate by updating your requests.
+
+<Steps>
+  <Step title="Update Endpoint">
+    Change `https://api.example.com/v1/pages/{pageId}` to `https://api.example.com/v2/pages/{pageId}`.
+  </Step>
+  <Step title="Test Integration">
+    Verify your integration with the new `<ParamField path="pageId" param-type="string" required="true">` parameter.
+  </Step>
+</Steps>
+
+## New Features
+
+- Launched content optimization recommendations based on audience insights.
+
+</Update>
+
+## Upcoming Roadmap
+
+Stay ahead with planned enhancements. Use these milestones to plan your integration.
+
+<Columns cols={3}>
+  <Card title="Q4 2024" icon="zap" href="#recent-updates">
+    AI-powered content suggestions and advanced A/B testing tools.
+  </Card>
+  <Card title="Q1 2025" icon="trending-up" href="/quickstart">
+    Cross-platform analytics including Instagram integration.
+  </Card>
+  <Card title="Q2 2025" icon="shield" href="/authentication">
+    Enterprise-grade security features like SSO and audit logs.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Subscribe to updates at `https://fbaudienceanalyzer.abacusai.app/notifications` to get email alerts for new releases.
+</Callout>
+
+## Version History Summary
+
+| Version | Date       | Key Changes                  |
+|---------|------------|------------------------------|
+| v2.3.0  | 2024-10-20 | Predictions, bug fixes       |
+| v2.2.0  | 2024-10-05 | Webhooks, competitor tools   |
+| v2.1.0  | 2024-09-15 | Breaking API update, recs    |
+| v2.0.0  | 2024-08-20 | Initial dashboard overhaul   |
+
+<Expandable title="Detailed Migration Notes for v2.1.0" default-open="false">
+
+If you encounter issues after upgrading:
+
+```javascript
+// Old way (v1)
+const insights = await fetch('https://api.example.com/v1/pages/{pageId}?key=YOUR_API_KEY');
+
+// New way (v2)
+const insights = await fetch('https://api.example.com/v2/pages/{pageId}?key=YOUR_API_KEY');
+```
+
+Update your `{pageId}` parameter and test thoroughly.
+
+</Expandable>
