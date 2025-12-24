@@ -1,11 +1,11 @@
 ---
 title: Integrations and Connections
-description: Learn how to connect Wicked Baron with third-party tools and use webhooks for seamless data flow in your workflow.
+description: Learn how to connect RankRocket ContentIQ with third-party tools and use webhooks for seamless data flow in your workflow.
 ---
 
 ## Overview
 
-Wicked Baron integrates seamlessly with popular third-party tools to enhance your Facebook analytics workflow. Connect your Facebook pages directly, set up webhooks for real-time notifications, export data to Google Sheets or BI platforms, and build custom solutions via API.
+RankRocket ContentIQ integrates seamlessly with popular third-party tools to enhance your Facebook analytics workflow. Connect your Facebook pages directly, set up webhooks for real-time notifications, export data to Google Sheets or BI platforms, and build custom solutions via API.
 
 <Columns cols={3}>
   <Card title="Facebook API" icon="facebook" href="#facebook-api">
@@ -19,9 +19,9 @@ Wicked Baron integrates seamlessly with popular third-party tools to enhance you
   </Card>
 </Columns>
 
-## Facebook API Connection
+## Facebook API connection
 
-Connect Wicked Baron to the Facebook Graph API to pull page and post insights automatically.
+Connect RankRocket ContentIQ to the Facebook Graph API to pull page and post insights automatically.
 
 <Steps>
   <Step title="Create Facebook App" icon="settings">
@@ -30,8 +30,8 @@ Connect Wicked Baron to the Facebook Graph API to pull page and post insights au
   <Step title="Generate Access Token" icon="key">
     Use the Graph API Explorer to generate a Page Access Token. Copy the token starting with `EAA...`.
   </Step>
-  <Step title="Add to Wicked Baron" icon="link">
-    In your Wicked Baron dashboard at `https://fbaudienceanalyzer.abacusai.app`, navigate to Settings > Integrations. Paste the token and select your pages.
+  <Step title="Add to RankRocket ContentIQ" icon="link">
+    In your RankRocket ContentIQ dashboard at `https://fbaudienceanalyzer.abacusai.app`, navigate to Settings &gt; Integrations. Paste the token and select your pages.
   </Step>
 </Steps>
 
@@ -39,11 +39,11 @@ Connect Wicked Baron to the Facebook Graph API to pull page and post insights au
   Renew tokens every 60 days to avoid interruptions. Test the connection immediately after setup.
 </Callout>
 
-## Webhooks for Real-Time Alerts
+## Webhooks for real-time alerts
 
-Set up webhooks to receive push notifications when post engagement exceeds thresholds, like `>1000` likes in 24 hours.
+Set up webhooks to receive push notifications when post engagement exceeds thresholds, like `&gt;1000` likes in 24 hours.
 
-Configure webhooks in your dashboard under Integrations > Webhooks. Provide your endpoint URL, such as `https://your-webhook-url.com/wickedbaron`.
+Configure webhooks in your dashboard under Integrations &gt; Webhooks. Provide your endpoint URL, such as `https://your-webhook-url.com/rankrocket-contentiq`.
 
 <Request tabs="cURL,JavaScript" show-lines="true">
   ```bash
@@ -95,15 +95,15 @@ Example payload received at your endpoint:
   ```
 </Response>
 
-## Marketing Automation Integrations
+## Marketing automation integrations
 
 Integrate with tools like Zapier or Make.com for automated workflows.
 
 <Tabs>
   <Tab title="Zapier" icon="zap">
     <Steps>
-      <Step title="Trigger Setup">
-        Select Wicked Baron as trigger app. Choose `New Engagement Alert`.
+      <Step title="Trigger setup">
+        Select RankRocket ContentIQ as trigger app. Choose `New Engagement Alert`.
       </Step>
       <Step title="Action">
         Connect to email, Slack, or CRM. Map fields like `{post_id}` and `{likes}`.
@@ -111,11 +111,11 @@ Integrate with tools like Zapier or Make.com for automated workflows.
     </Steps>
   </Tab>
   <Tab title="Make.com" icon="play">
-    Create a scenario with Wicked Baron webhook module. Parse JSON payload and route to Google Sheets or HubSpot.
+    Create a scenario with RankRocket ContentIQ webhook module. Parse JSON payload and route to Google Sheets or HubSpot.
   </Tab>
 </Tabs>
 
-## Data Exports
+## Data exports
 
 Export analytics to spreadsheets or BI tools without coding.
 
@@ -125,8 +125,8 @@ Use the built-in exporter:
 
 <CodeGroup tabs="Zapier,Direct API">
   ```javascript
-  // Google Apps Script to fetch from Wicked Baron
-  function importWickedBaronData() {
+  // Google Apps Script to fetch from RankRocket ContentIQ
+  function importRankRocketContentIQData() {
     const url = 'https://api.example.com/v1/pages/123456789/insights';
     const response = UrlFetchApp.fetch(url, {
       headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
@@ -140,7 +140,7 @@ Use the built-in exporter:
   import requests
 
   gc = gspread.service_account()
-  sheet = gc.open("Wicked Baron Insights").sheet1
+  sheet = gc.open("RankRocket ContentIQ Insights").sheet1
 
   resp = requests.get(
       'https://api.example.com/v1/pages/123456789/insights',
@@ -151,7 +151,7 @@ Use the built-in exporter:
   ```
 </CodeGroup>
 
-### BI Platforms
+### BI platforms
 
 Connect via API to Tableau, Power BI, or Looker. Use the `/v1/insights` endpoint with query params.
 
@@ -163,14 +163,14 @@ Connect via API to Tableau, Power BI, or Looker. Use the `/v1/insights` endpoint
   Filter by `likes`, `shares`, `reach`. Default: all.
 </ParamField>
 
-## Custom API Integrations
+## Custom API integrations
 
 For advanced use, access the full API at `https://api.example.com/v1`.
 
 ```mermaid
 graph LR
     A[Your App] --> B[POST /webhooks]
-    B --> C[Wicked Baron]
+    B --> C[RankRocket ContentIQ]
     C --> D[PUSH to your URL]
     D --> E[Process Data]
 ```
@@ -179,7 +179,7 @@ graph LR
   Always validate webhook signatures using the `secret` to prevent spoofing. Store `YOUR_API_KEY` securely.
 </Callout>
 
-<Expandable title="Troubleshooting Integrations" default-open="false">
+<Expandable title="Troubleshooting integrations" default-open="false">
   - **Webhook not firing?** Check endpoint logs and verify events match your subscription.
   - **Facebook token expired?** Regenerate via Graph API Explorer.
   - **Export limits?** Upgrade plan for higher quotas.
